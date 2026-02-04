@@ -1,0 +1,21 @@
+.header {
+    background-color: aqua;
+    text-align: center;
+}
+
+.gridField {
+    display: flex;
+    flex-direction: column;
+}
+
+.gridRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.gridSquare {
+    width: 40px;
+    height: 40px;
+    border: 1px dashed black;
+}
