@@ -2,9 +2,9 @@ function createGridTemplate(size = 16) {
     const gridField = document.querySelector("#gridField");
 
     const gridTemplate = document.createElement("div");
-    gridTemplate.classList.add("gridTemplate")
+    gridTemplate.classList.add("gridTemplate");
     gridField.append(gridTemplate);
-    
+
     for (let i = 0; i < size; i++) {
         const gridRow = createGridRow(size);
         gridRow.classList.add("gridRow")
@@ -16,14 +16,15 @@ function createGridTemplate(size = 16) {
         for (let i = 0; i < size; i++) {
             const gridSquare = document.createElement("div");
             gridSquare.classList.add("gridSquare");
-            gridSquare.textContent = ""
+            gridSquare.textContent = "";
             gridRow.append(gridSquare);
-            gridSquare.setAttribute("draggable", false)
+            gridSquare.setAttribute("draggable", false);
         }
         return gridRow;
     }
 
-    function changeColor(target, color) {
+    function changeColor(target) {
+        const color = document.querySelector("#colorSelect").value
         target.style.backgroundColor = color;
     }
 
@@ -36,11 +37,13 @@ function createGridTemplate(size = 16) {
 
     gridTemplate.addEventListener("mouseover", (event) => {
         if (isDrawing && event.target.classList.contains("gridSquare")) {
-            changeColor(event.target, "red");
+            changeColor(event.target);
         }
     })
 
     gridTemplate.addEventListener("mouseup", () => isDrawing = false);
+
+    
 }
 
 createGridTemplate();
