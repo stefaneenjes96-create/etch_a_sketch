@@ -1,22 +1,26 @@
-function createGridTemplate(size = 16) {
+function createGridTemplate() {
     const gridField = document.querySelector("#gridField");
 
     const gridTemplate = document.createElement("div");
-    gridTemplate.classList.add("gridTemplate");
+    gridTemplate.id = "gridTemplate";
     gridField.append(gridTemplate);
 
-    for (let i = 0; i < size; i++) {
-        const gridRow = createGridRow(size);
+    gridSize = document.querySelector("#gridSize").value
+
+    for (let i = 0; i < gridSize; i++) {
+        const gridRow = createGridRow(gridSize);
         gridRow.classList.add("gridRow")
         gridTemplate.append(gridRow);
     }
 
-    function createGridRow(size) {
+    function createGridRow(gridSize) {
         const gridRow = document.createElement("div");
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < gridSize; i++) {
             const gridSquare = document.createElement("div");
             gridSquare.classList.add("gridSquare");
             gridSquare.textContent = "";
+            gridSquare.style.height = `${500 / gridSize}px`;
+            gridSquare.style.width = `${500 / gridSize}px`;
             gridRow.append(gridSquare);
             gridSquare.setAttribute("draggable", false);
         }
@@ -59,5 +63,49 @@ function clearGridTemplate() {
 
 const clearButton = document.querySelector("#clearGridTemplate");
 clearButton.addEventListener("click", () => clearGridTemplate())
+
+const darkenButton = document.querySelector("#darkenButton");
+let darkMode = false;
+darkenButton.addEventListener("click", () => {
+    const gridTemplate = document.querySelector("#gridTemplate");
+    darkMode = !darkMode;
+    let isDrawing = false
+    if (darkMode) {
+        gridTemplate.addEventListener("mousedown", (event) => {
+            event.target.style.filter = `brightness(50%)`;
+            isDrawing = true;
+        });
+
+        gridTemplate.addEventListener("mouseover", (event) => {
+            if (event.target.classList.contains("gridSquare") && isDrawing) {
+                event.target.style.filter = `brightness(50%)`;
+            }
+        })
+        gridTemplate.addEventListener("mouseup", () => isDrawing = false);
+    } else {
+        gridTemplate.addEventListener("mousedown", (event) => {
+            event.target.style.filter = `brightness(100%)`;
+            isDrawing = true;
+        });
+
+        gridTemplate.addEventListener("mouseover", (event) => {
+            if (event.target.classList.contains("gridSquare") && isDrawing) {
+                event.target.style.filter = `brightness(100%)`;
+            }
+        })
+        gridTemplate.addEventListener("mouseup", () => isDrawing = false);
+    }
+});
+
+const gridSizeInput = document.querySelector("#gridSize");
+let gridSize = gridSizeInput.value;
+gridSizeInput.addEventListener("change", () => {
+    gridSize = gridSizeInput.value;
+    const gridTemplate = document.querySelector("#gridTemplate");
+    const gridSizeText = document.querySelector("#gridSizeText");
+    gridSizeText.textContent = `${gridSize} X ${gridSize}`
+    gridTemplate.remove()
+    createGridTemplate()
+});
 
 createGridTemplate();
