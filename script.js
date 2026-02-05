@@ -23,16 +23,12 @@ function createGridTemplate(size = 16) {
         return gridRow;
     }
 
-    function changeColor(target) {
-        const color = document.querySelector("#colorSelect").value
-        target.style.backgroundColor = color;
-    }
-
     let isDrawing = false;
 
     gridTemplate.addEventListener("mousedown", (event) => {
         event.preventDefault();
         isDrawing = true;
+        changeColor(event.target);
     });
 
     gridTemplate.addEventListener("mouseover", (event) => {
@@ -42,8 +38,21 @@ function createGridTemplate(size = 16) {
     })
 
     gridTemplate.addEventListener("mouseup", () => isDrawing = false);
-
-    
 }
+
+function changeColor(target) {
+    const color = document.querySelector("#colorSelect").value
+    target.style.backgroundColor = color;
+}
+
+function clearGridTemplate() {
+    const allGridSquares = document.querySelectorAll(".gridSquare");
+    allGridSquares.forEach(function(currentValue) {
+        currentValue.style.backgroundColor = "white";
+    });
+}
+
+const clearButton = document.querySelector("#clearGridTemplate");
+clearButton.addEventListener("click", () => clearGridTemplate())
 
 createGridTemplate();
