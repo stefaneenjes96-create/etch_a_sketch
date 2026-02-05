@@ -4,10 +4,6 @@ function createGridTemplate(size = 16) {
         const gridRow = createGridRow(size);
         gridRow.classList.add("gridRow")
         gridTemplate.append(gridRow);
-
-        gridTemplate.addEventListener("click", (event) => {
-            changeColor(event.target, "red");
-        })
     }
 
     function createGridRow(size) {
@@ -17,6 +13,7 @@ function createGridTemplate(size = 16) {
             gridSquare.classList.add("gridSquare");
             gridSquare.textContent = ""
             gridRow.append(gridSquare);
+            gridSquare.setAttribute("draggable", false)
         }
         return gridRow;
     }
@@ -24,6 +21,21 @@ function createGridTemplate(size = 16) {
     function changeColor(target, color) {
         target.style.backgroundColor = color;
     }
+
+    let isDrawing = false;
+
+    gridTemplate.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+        isDrawing = true;
+    });
+
+    gridTemplate.addEventListener("mouseover", (event) => {
+        if (isDrawing && event.target.classList.contains("gridSquare")) {
+            changeColor(event.target, "red");
+        }
+    })
+
+    gridTemplate.addEventListener("mouseup", () => isDrawing = false);
 }
 
 createGridTemplate();
