@@ -41,7 +41,12 @@ function createGridTemplate(size = 16) {
 }
 
 function changeColor(target) {
-    const color = document.querySelector("#colorSelect").value
+    let color = document.querySelector("#colorSelect").value
+    if (color === "rainbow") {
+        const colorList = ["red", "orange", "yellow", "green", "blue", "purple"];
+        color = colorList[Math.floor(Math.random() * 6)]
+    }
+
     target.style.backgroundColor = color;
 }
 
