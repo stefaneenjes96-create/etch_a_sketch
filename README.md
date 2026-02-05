@@ -6,7 +6,7 @@ The goal is to make a etch a sketch webapp.
 I will be implementing the following feutures:
 
 * [x] a default 16x16 square grid template.
-* [ ] when you click on a square it will change it's color.
+* [x] when you click on a square it will change it's color.
 * [ ] when you hold your mouse button and move over the squares they will change their color.
 * [ ] a option to change the color being used.
 * [ ] a option to change color to rainbow (random colors).
