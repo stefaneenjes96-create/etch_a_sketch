@@ -4,6 +4,10 @@ function createGridTemplate(size = 16) {
         const gridRow = createGridRow(size);
         gridRow.classList.add("gridRow")
         gridTemplate.append(gridRow);
+
+        gridTemplate.addEventListener("click", (event) => {
+            changeColor(event.target, "red");
+        })
     }
 
     function createGridRow(size) {
@@ -15,6 +19,10 @@ function createGridTemplate(size = 16) {
             gridRow.append(gridSquare);
         }
         return gridRow;
+    }
+
+    function changeColor(target, color) {
+        target.style.backgroundColor = color;
     }
 }
 

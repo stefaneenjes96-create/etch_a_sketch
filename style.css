@@ -17,5 +17,6 @@
 .gridSquare {
     width: 40px;
     height: 40px;
-    border: 1px dashed black;
+    outline: 1px solid rgb(29, 29, 29);
+    background-color: black;
 }
