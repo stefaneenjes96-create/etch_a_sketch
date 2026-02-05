@@ -1,5 +1,10 @@
 function createGridTemplate(size = 16) {
-    const gridTemplate = document.querySelector("#gridField");
+    const gridField = document.querySelector("#gridField");
+
+    const gridTemplate = document.createElement("div");
+    gridTemplate.classList.add("gridTemplate")
+    gridField.append(gridTemplate);
+    
     for (let i = 0; i < size; i++) {
         const gridRow = createGridRow(size);
         gridRow.classList.add("gridRow")

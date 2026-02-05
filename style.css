@@ -1,11 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .header {
     background-color: aqua;
     text-align: center;
 }
 
-.gridField {
+body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+#gridField {
+    display: flex;
+    flex-direction: column;
+}
+
+.gridTemplate {
+    box-shadow: 0 0 5px 3px rgb(158, 158, 158);
+    margin: 20px auto;
 }
 
 .gridRow {
@@ -17,6 +34,6 @@
 .gridSquare {
     width: 40px;
     height: 40px;
-    outline: 1px solid rgb(29, 29, 29);
-    background-color: black;
+    outline: 1px solid rgb(189, 189, 189);
+    background-color: rgb(255, 255, 255);
 }
