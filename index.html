@@ -10,39 +10,40 @@
     <div class="header">
         <h1>Etch-A-Sketch</h1>
     </div>
+    <div id="main">
+        <div id="gridField">
 
-    <div id="gridField">
-
-    </div>
-
-    <div id="settings">
-        <div id="colorOption">
-            <label for="colorSelect">Choose a color:</label>
-            <select name="color" id="colorSelect">
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <option value="red">Red</option>
-                <option value="orange">Orange</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-                <option value="purple">Purple</option>
-                <option value="rainbow">Rainbow</option>
-            </select>
         </div>
 
-        <div id="gridSizeOption">
-            <label for="gridSize">grid size: <span id="gridSizeText">16 X 16</span></label>
-            <input type="range" id="gridSize" min="8" max="64" step="8" value="16">
+        <div id="settings">
+            <div id="colorOption">
+                <label for="colorSelect">Choose a color:</label>
+                <select name="color" id="colorSelect">
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="rainbow">Rainbow</option>
+                </select>
+            </div>
+
+            <div id="gridSizeOption">
+                <label for="gridSize">grid size: <span id="gridSizeText">16 X 16</span></label>
+                <input type="range" id="gridSize" min="8" max="64" step="8" value="16">
+            </div>
+
+            <button id="darkenButton">Darkening effect</button>
+
+            <button id="clearGridTemplate">Clear</button>
         </div>
-
-        <button id="darkenButton">Darkening effect</button>
-
-        <button id="clearGridTemplate">Clear</button>
     </div>
     
     <div class="footer">
-
+        Created by Stefan Eenjes
     </div>
 
     <script src="script.js"></script>
