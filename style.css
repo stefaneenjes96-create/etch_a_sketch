@@ -4,8 +4,11 @@
 }
 
 .header {
-    background-color: aqua;
+    background-color: #ffbf00;
     text-align: center;
+    padding: 20px;
+    border-bottom: 3px solid #8f4a01;
+    font-size: 32px;
 }
 
 body {
@@ -13,6 +16,8 @@ body {
     flex-direction: column;
     justify-content: center;
     justify-items: center;
+    background-color: #fce8b1;
+    color: #8f4a01;
 }
 
 #gridField {
@@ -23,7 +28,7 @@ body {
 #gridTemplate {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 5px 3px rgb(158, 158, 158);
+    box-shadow: 0 0 5px 3px #8f4a01;
     margin: 20px auto;
     width: auto;
     height: 80vh;
@@ -39,8 +44,50 @@ body {
 }
 
 .gridSquare {
-    outline: 1px solid rgb(189, 189, 189);
-    background-color: rgb(255, 255, 255);
+    outline: 1px solid #8f4a01;
+    background-color: #fce8b1;
     flex: 1;
     overflow: hidden;
+}
+
+#settings {
+    display: flex;
+    justify-content: center;
+    gap: 30px
+}
+
+#colorOption {
+    display: flex;
+    flex-direction: column;
+}
+
+#gridSizeOption {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#settings button {
+    padding: 5px;
+    background-color: #ffbf00;
+    border: 2px solid #8f4a01;
+    border-radius: 5px;
+}
+
+#settings button:hover {
+    box-shadow: 2px 2px #8f4a01;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #84d609;
+    border-radius: 5px;
+    height: 10px;
+    cursor: pointer;
+}
+
+select {
+    background-color: #ffbf00;
 }

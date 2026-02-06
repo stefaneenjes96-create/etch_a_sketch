@@ -57,7 +57,7 @@ function changeColor(target) {
 function clearGridTemplate() {
     const allGridSquares = document.querySelectorAll(".gridSquare");
     allGridSquares.forEach(function(currentValue) {
-        currentValue.style.backgroundColor = "white";
+        currentValue.style.backgroundColor = "#fce8b1";
     });
 }
 
